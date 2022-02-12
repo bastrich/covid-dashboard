@@ -3,7 +3,7 @@ version: '3.9'
 services:
 
   postgres:
-    image: postgres:12.3-alpine
+    image: covid-dashboard-postgres:v1
     environment:
       POSTGRES_USER: covid
       POSTGRES_PASSWORD: covid
