@@ -3,10 +3,15 @@ version: '3.9'
 services:
 
   postgres:
-    image: yhpark90/covid-dashboard-postgres:v1
+    image: yhpark90/covid-dashboard-postgres:v4
     environment:
       POSTGRES_USER: covid
       POSTGRES_PASSWORD: covid
-      POSTGRES_DB: covid
+      POSTGRES_DB: postgres
     ports:
       - 5432:5432
+    volumes:
+      - postgres:/var/lib/postgresql/data
+volumes:
+  postgres:
+    driver: local
