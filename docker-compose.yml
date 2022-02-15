@@ -3,7 +3,7 @@ version: '3.9'
 services:
 
   postgres:
-    image: yhpark90/covid-dashboard-postgres:v4
+    image: yhpark90/covid-dashboard-postgres:v5
     environment:
       POSTGRES_USER: covid
       POSTGRES_PASSWORD: covid
