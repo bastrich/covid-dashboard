@@ -22,12 +22,48 @@ const port = process.env.PORT || "8000";
  * Routes Definitions
  */
 
-app.get("/", (req, res) => {
-    res.status(200).send("WHATABYTE: Food For Devs");
+app.get("/getAggregatedStatistics", (req, res) => {
+    let response = {
+        deaths: 123,
+        cases: 456
+    }
+    res.status(200).send(response);
 });
 
-app.get("/getData", (req, res) => {
-    res.status(200).send("Some Data");
+app.get("/getDeathsData", (req, res) => {
+    let response = [
+        {
+            day: "2020-01-20",
+            number: "123"
+        },
+        {
+            day: "2020-01-21",
+            number: "1234"
+        },
+        {
+            day: "2020-01-22",
+            number: "12345"
+        }
+    ]
+    res.status(200).send(response);
+});
+
+app.get("/getCasesData", (req, res) => {
+    let response = [
+        {
+            day: "2020-01-20",
+            number: "123"
+        },
+        {
+            day: "2020-01-21",
+            number: "1234"
+        },
+        {
+            day: "2020-01-22",
+            number: "12345"
+        }
+    ]
+    res.status(200).send(response);
 });
 
 /**
