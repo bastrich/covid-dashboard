@@ -3,15 +3,15 @@ version: '3.9'
 services:
 
   postgres:
-    image: yhpark90/covid-dashboard-postgres:v4
+    image: postgres:12.3-alpine
     environment:
       POSTGRES_USER: covid
       POSTGRES_PASSWORD: covid
-      POSTGRES_DB: postgres
+      POSTGRES_DB: covid
     ports:
       - 5432:5432
     volumes:
-      - postgres:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
 volumes:
   postgres:
     driver: local
