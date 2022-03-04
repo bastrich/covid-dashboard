@@ -1,0 +1,97 @@
+<!--retrieved from https://blog.bitsrc.io/visualize-covid-19-data-using-postman-d3-js-and-bootstrap-5db94063399b-->
+<!DOCTYPE html>
+<html>
+<style>
+    h1 {
+        text-align:center;
+    }
+    .image{
+        text-align: center;
+    }
+    .wrapper{
+        display: flex;
+        justify-content;
+        flex-wrap: wrap;
+        padding: 0 0;
+        max-width: 900px;
+        margin: auto auto;
+        text-align: center;
+    }
+    .menu
+    .content{
+        width: 100%;
+    }
+    select{
+        width: 283%;
+        padding: 15px;
+        font-size: 16px;
+        font-weight: 700;
+        border: none;
+        border-radius: 8px;
+        border: 2px solid #3f51b5;
+    }
+    .content{
+        width: 100%;
+        margin: 10px 0;
+    }
+    .content .data{
+        padding: 25px;
+        background-color: #fff;
+        border: 2px solid #8bc34a;
+        border-radius: 8px;
+    }
+    .content p{
+        margin-bottom: 15px;
+        padding-bottom:15px;
+        border-bottom:1px solid gainsboro;
+    }
+    .content p:last-child{
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+    .content p span{
+        float: right;
+        font-weight:normal;
+    }
+    .data{
+        display: none;
+    }
+    .name{
+        text-align: center;
+    }
+    .card-img-top {
+        width: 510px;
+    }
+    .card {
+        margin: 0 auto;
+        float: none;
+        margin-bottom: 10px;
+        font-size:14px;
+        color: #ffffff;
+        background-color: #5271C2;
+    }
+    .card-horizontal {
+        display: flex;
+        flex: 1 1 auto;
+    }
+    .number{
+        color: #aa9e5c;
+        margin-left:5px;
+        font-size:14px;
+        font-weight: bold;
+    }
+    thead{
+        background-color: #3e5eb3;
+        color: #ffffff
+    }
+</style>
+<head>
+    <meta charset="utf-8">
+    <title>Example App</title>
+</head>
+<body>
+    {{> navbar }}
+    {{{body}}}
+</body>
+</html>

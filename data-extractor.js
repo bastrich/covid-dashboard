@@ -9,7 +9,7 @@ const client = new Client({
     port: 5432,
 })
 
-const insertQuery = 'INSERT INTO covid_data(day, cases, deaths, country_and_territory) VALUES($1, $2, $3, $4)'
+const insertQuery = 'INSERT INTO covid_data(day, cases, deaths, country) VALUES($1, $2, $3, $4)'
 
 console.log('Start fetching covid data');
 
