@@ -1,45 +1,21 @@
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-12 mt-3">
-            <div class="card">
-                <div class="card-horizontal">
-                    <div class="img-square-wrapper">
-                        <img class="card-img-top" src="https://cdn.pixabay.com/photo/2020/03/19/21/35/covid-4948866_960_720.jpg" alt="Card image cap">
-                    </div>
-                    <div class="card-body">
-                        <h4 class="card-title">Global data </h4>
-                        {{#each info.Global }}
-                            <div class="row">
-                                <div class="col-12">
-                                    <p class="card-text"> {{@key}} <span class="number"> {{this}}</span></p>
-                                </div>
-                            </div>
-                        {{/each}}
-                    </div>
-                </div>
-            </div>
-        </div>
+<div class="grid-container">
+    <div class="intro">
+        <h2>Global data </h2>
+        {{#each info.Global }}
+            <p class="intro-text"> {{@key}} <span class="number"> {{this}}</span></p>
+                {{/each}}
     </div>
-    <h1>Data per country</h1>
-
-    <table class="table responsive" id="sort">
-        <thead>
-        <tr>
-            <th scope="col">Country</th>
-            <th scope="col">Date</th>
-            <th scope="col">Total Cases</th>
-            <th scope="col">Total Deaths</th>
-        </tr>
-        </thead>
-        <tbody>
-        {{#each info.Countries}}
-            <tr>
-                <td>{{Country}}</td>
-                <td>{{Date}}</td>
-                <td>{{TotalCases}}</td>
-                <td>{{TotalDeaths}}</td>
-            </tr>
-        {{/each}}
-        </tbody>
-    </table>
+    
+    <div class="graph-links">
+            <ul>
+                <li class="buttons"><a href="/ds1"><button class="button button1">Covid-19 Data by Country</button></a></li>
+                <li class="buttons"><a href="/ds2"><button class="button button2">Historical Data</button></a></li>
+                <li class="buttons"><a href="/ds3"><button class="button button3" onclick="/ds3">Global Data per Country</button></a></li>
+            </ul>
+            
+    </div>
 </div>
+
+{{!-- <div class="img-square-wrapper">
+                        <img class="card-img-top" src="https://cdn.pixabay.com/photo/2020/03/19/21/35/covid-4948866_960_720.jpg" alt="Card image cap">
+                    </div> --}}

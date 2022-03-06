@@ -38,8 +38,7 @@ const selectGlobalHistoricalDataQuery = 'SELECT day, day::text as date, SUM(case
  */
 app.get('/', (req, res) => {
     const responseData = {
-        Global: {},
-        Countries: []
+        Global: {}
     }
 
     client
@@ -50,23 +49,15 @@ app.get('/', (req, res) => {
                 'Total Deaths': dbResultGlobalData.rows[0].total_deaths,
                 Date: dbResultGlobalData.rows[0].date
             }
-        })
-        .catch(e => console.error(e.stack))
-
-    client
-        .query(selectPerCountryDataQuery)
-        .then(dbResultPerCountryData => {
-            dbResultPerCountryData.rows.forEach(row => {
-                responseData.Countries.push({
-                    Country: row.country,
-                    Date: row.date,
-                    TotalCases: row.total_cases,
-                    TotalDeaths: row.total_deaths
-                })
-            })
             res.render('ds0', {info:responseData})
         })
         .catch(e => console.error(e.stack))
+
+    
+});
+
+app.get("/about", function (req, res) {
+    res.render("about");
 });
 
 app.get('/ds1', (req, res) => {
@@ -104,6 +95,27 @@ app.get('/ds2', (req, res) => {
                 })
             })
             res.render('ds2', {info:responseData})
+        })
+        .catch(e => console.error(e.stack))
+});
+
+app.get('/ds3', (req, res) => {
+    const responseData = {
+        Countries: []
+    }
+
+    client
+        .query(selectPerCountryDataQuery)
+        .then(dbResultPerCountryData => {
+            dbResultPerCountryData.rows.forEach(row => {
+                responseData.Countries.push({
+                    Country: row.country,
+                    Date: row.date,
+                    TotalCases: row.total_cases,
+                    TotalDeaths: row.total_deaths
+                })
+            })
+            res.render('ds3', {info:responseData})
         })
         .catch(e => console.error(e.stack))
 });
