@@ -1,62 +1,66 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<h1>Historical Data</h1>
-<div class="wrapper">
+<div class="grid-container">
+  <div class="title">
+    <h1>Historical Data</h1>
+  </div>
+
+  <div class="chart">
   <canvas id="Chart"></canvas>
-</div>
-<script>
+    <script>
+      const labels = [
+          {{#each info}}
+              '{{Date}}',
+          {{/each}}
+      ];
 
-  const labels = [
-      {{#each info}}
-          '{{Date}}',
-      {{/each}}
-  ];
+      const data = {
+        labels: labels,
+        datasets: [{
+          label: 'Cases',
+          backgroundColor: 'rgb(255, 99, 132)',
+          borderColor: 'rgb(255, 99, 132)',
+          data: [{{#each info}}
+              {{Cases}},
+          {{/each}}],
+        },
+        {
+          label: 'Deaths',
+          backgroundColor: 'rgb(0, 99, 132)',
+          borderColor: 'rgb(0, 99, 132)',
+          data: [{{#each info}}
+              {{Deaths}},
+          {{/each}}],
+        }]
+      };
 
-  const data = {
-    labels: labels,
-    datasets: [{
-      label: 'Cases',
-      backgroundColor: 'rgb(255, 99, 132)',
-      borderColor: 'rgb(255, 99, 132)',
-      data: [{{#each info}}
-          {{Cases}},
-      {{/each}}],
-    },
-    {
-      label: 'Deaths',
-      backgroundColor: 'rgb(0, 99, 132)',
-      borderColor: 'rgb(0, 99, 132)',
-      data: [{{#each info}}
-          {{Deaths}},
-      {{/each}}],
-    }]
-  };
-
-  const config = {
-    type: 'line',
-    data: data,
-    options: {
-        scales: {
-            y: {
-                display: true,
-                title: {
+      const config = {
+        type: 'line',
+        data: data,
+        options: {
+            scales: {
+                y: {
                     display: true,
-                    text: '# of peoples'
-                }
-            },
-            x: {
-                display: true,
-                title: {
+                    title: {
+                        display: true,
+                        text: '# of peoples'
+                    }
+                },
+                x: {
                     display: true,
-                    text: 'dates'
+                    title: {
+                        display: true,
+                        text: 'dates'
+                    }
                 }
             }
         }
-    }
-  };
-</script>
-<script>
-  const myChart = new Chart(
-    document.getElementById('Chart'),
-    config
-  );
-</script>
+      };
+    </script>
+    <script>
+      const myChart = new Chart(
+        document.getElementById('Chart'),
+        config
+      );
+    </script>
+  </div>
+ </div>

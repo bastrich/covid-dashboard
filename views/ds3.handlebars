@@ -1,0 +1,25 @@
+<div class="grid-container">
+  <div class="title">
+    <h1>Data per country</h1>
+  </div>
+    <table class="table-responsive" id="sort">
+        <thead>
+        <tr>
+            <th scope="col">Country</th>
+            <th scope="col">Date</th>
+            <th scope="col">Total Cases</th>
+            <th scope="col">Total Deaths</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#each info.Countries}}
+            <tr>
+                <td>{{Country}}</td>
+                <td>{{Date}}</td>
+                <td>{{TotalCases}}</td>
+                <td>{{TotalDeaths}}</td>
+            </tr>
+        {{/each}}
+        </tbody>
+    </table>
+</div>

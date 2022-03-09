@@ -1,6 +1,7 @@
 <h1>CoronaVirus Country Wise Data</h1>
-<div class="wrapper">
+<div class="grid-container">
     <div class="menu">
+        <h2> Select your Country: </h2>
 		<select id="name">
         {{#each info.Countries as |val key| }}
 			<option value="{{val.Country}}">{{val.Country}}</option>
@@ -8,11 +9,10 @@
 		</select>
 	</div>
 
-
     <div class="content">
     {{#each info.Countries as |val key| }}
         <div id="{{val.Country}}" class="data">
-        <p class="name"><b>{{val.Country}}</b></p>
+        <h3 class="name"><b>{{val.Country}}</b></h3>
         <p><b>Date: </b><span>{{val.Date}}</span></p>
         <p><b>Total Cases: </b><span>{{val.TotalCases}}</span></p>
         <p><b>Total Deaths:</b><span>{{val.TotalDeaths}}</span></p>
