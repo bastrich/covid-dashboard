@@ -27,14 +27,23 @@ app.engine('handlebars', engine());
 app.set('view engine', 'handlebars');
 app.set('views', './views');
 
+/**
+ * Init DB connection
+ */
 client.connect();
 
+/**
+ * SQL queries used
+ */
 const selectGlobalDataQuery = 'SELECT MAX(day)::text as date, SUM(cases) as total_cases, SUM(deaths) as total_deaths from covid_data'
 const selectPerCountryDataQuery = 'SELECT country, MAX(day)::text as date, SUM(cases) as total_cases, SUM(deaths) as total_deaths from covid_data GROUP BY country'
 const selectGlobalHistoricalDataQuery = 'SELECT day, day::text as date, SUM(cases) as total_cases, SUM(deaths) as total_deaths from covid_data GROUP BY day ORDER BY day'
 
 /**
  * Routes Definitions
+ */
+/**
+ * Main Page
  */
 app.get('/', (req, res) => {
     const responseData = {
@@ -56,10 +65,16 @@ app.get('/', (req, res) => {
     
 });
 
+/**
+ * About Page
+ */
 app.get("/about", function (req, res) {
     res.render("about");
 });
 
+/**
+ * Data By Country Page
+ */
 app.get('/ds1', (req, res) => {
     const responseData = {
         Countries: []
@@ -81,6 +96,9 @@ app.get('/ds1', (req, res) => {
         .catch(e => console.error(e.stack))
 });
 
+/**
+ * Historical Data
+ */
 app.get('/ds2', (req, res) => {
     const responseData = []
 
@@ -99,6 +117,9 @@ app.get('/ds2', (req, res) => {
         .catch(e => console.error(e.stack))
 });
 
+/**
+ * Consolidated Data By Country Page
+ */
 app.get('/ds3', (req, res) => {
     const responseData = {
         Countries: []
